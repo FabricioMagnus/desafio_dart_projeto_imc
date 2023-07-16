@@ -1,7 +1,5 @@
 import 'dart:io';
 
-import 'package:desafio_dart_projeto_imc/desafio_dart_projeto_imc.dart'
-    as desafio_dart_projeto_imc;
 import 'package:desafio_dart_projeto_imc/models/pessoa_class.dart';
 
 void main(List<String> arguments) {
@@ -12,7 +10,9 @@ void main(List<String> arguments) {
   print("Digite a altura da pessoa :");
   double altura = double.parse(stdin.readLineSync().toString());
 
-  Pessoa pessoa1 = new Pessoa(nome, peso, altura);
+  Pessoa pessoa1 = Pessoa(nome, peso, altura);
 
-  print("${pessoa1.toString()}");
+  double imc = pessoa1.calcularIMC();
+
+  print(pessoa1.verificarstatus(imc));
 }
